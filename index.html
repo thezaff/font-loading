@@ -8,7 +8,8 @@
 
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/theme/white.css">
+		<link rel="stylesheet" href="css/index.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/monokai.css">
@@ -25,11 +26,315 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<aside class="notes">
-					my notes
-				</aside>
-				<section>Slide 2</section>
+				<section data-transition="none">
+					<h1>Fonts Loading Strategy</h1>
+					<a href="https://github.com/thezaff/" target="_blank">🐱‍💻 Zafar Khodjaev</a>
+					<p>📆 08/2019</p>
+					<aside class="notes">
+						Ladies and... Gentlemen. Welcome to font club.
+					</aside>
+				</section>
+				<section data-transition="none" data-background-color="#000000">
+					<img src="./img/font-club-1.jpg" alt="rule 1">
+				</section>
+				<section data-transition="grow" data-background-color="#000000">
+					<img src="./img/font-club-2.jpg" alt="rule 1">
+				</section>
+				<section>
+					<section>
+						<h2>What are the fonts?</h2>
+						<figure>
+							<img src="img/glyphs.png" alt="glyphs">
+							<figcaption>
+								<a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/webfont-optimization" target="_blank">Google Developers</a>
+							</figcaption>
+						</figure>
+					</section>
+					<section>
+						<h2>Popular Formats</h2>
+						<ul>
+							<li>EOT</li>
+							<li>OTF/TTF</li>
+							<li>WOFF</li>
+							<li>WOFF2</li>
+						</ul>
+					</section>
+					<section>
+						<h2>EOT</h2>
+						<img class="stretch" src="./img/eot.png" alt="eot">
+						<p>
+							<strong>Supported only in IE.</strong>
+							Use if you want support IE below version 9.
+						</p>
+						<p>
+							<em>No compression by default.</em>
+						</p>
+					</section>
+					<section>
+						<h2>OTF/TTF</h2>
+						<img class="stretch" src="./img/otf.png" alt="otf">
+						<p>Supported by the most browsers and partially by IE. <strong>Use to support Androind 4.4 and below.</strong></p>
+						<p>
+							<em>No compression by default.</em>
+						</p>
+					</section>
+					<section>
+						<h2>WOFF</h2>
+						<img class="stretch" src="./img/woff.png" alt="woff">
+						<p>Supported by almost all browsers.</p>
+						<p>
+							<em>Built-in compression.</em>
+						</p>
+					</section>
+					<section>
+						<h2>WOFF2</h2>
+						<img class="stretch" src="./img/woff2.png" alt="woff2">
+						<p>Not supported in IE and some other browsers.</p>
+						<p>
+							<em>Built-in compression. <strong>30% lighter than WOFF</strong></em>
+						</p>
+					</section>
+					<section>
+						<h2>Cool Tool</h2>
+						<img class="stretch" src="./img/transfonter-snapshot.png" alt="transfonter">
+					</section>
+				</section>
+				<section>
+					<section data-transition="none">
+						<h2>Declaring font face</h2>
+						<pre class="stretch">
+							<code data-trim data-noescape data-line-numbers="1,10">
+								@font-face {
+									font-family: 'Open Sans', 'Arial', sans-serif;
+									font-style: normal;
+									font-weight: 400;
+									src: local('Open Sans'),
+										url('/fonts/open-sans.woff2') format('woff2'),
+										url('/fonts/open-sans.woff') format('woff'),
+										url('/fonts/open-sans.ttf') format('truetype'),
+										url('/fonts/open-sans.eot') format('embedded-opentype');
+								}
+							</code>
+						</pre>
+					</section>
+					<section data-transition="none">
+						<h4>Name font and define fallback fonts</h4>
+						<pre class="stretch">
+							<code data-trim data-noescape data-line-numbers="2">
+								@font-face {
+									font-family: 'Open Sans', 'Arial', sans-serif;
+									font-style: normal;
+									font-weight: 400;
+									src: local('Open Sans'),
+										url('/fonts/open-sans.woff2') format('woff2'),
+										url('/fonts/open-sans.woff') format('woff'),
+										url('/fonts/open-sans.ttf') format('truetype'),
+										url('/fonts/open-sans.eot') format('embedded-opentype');
+								}
+							</code>
+						</pre>
+					</section>
+					<section data-transition="none">
+						<h4>Define font style (e.g: normal, italic, etc.)</h4>
+						<pre class="stretch">
+							<code data-trim data-noescape data-line-numbers="3">
+								@font-face {
+									font-family: 'Open Sans', 'Arial', sans-serif;
+									font-style: normal;
+									font-weight: 400;
+									src: local('Open Sans'),
+										url('/fonts/open-sans.woff2') format('woff2'),
+										url('/fonts/open-sans.woff') format('woff'),
+										url('/fonts/open-sans.ttf') format('truetype'),
+										url('/fonts/open-sans.eot') format('embedded-opentype');
+								}
+							</code>
+						</pre>
+					</section>
+					<section data-transition="none">
+						<h4>Define font weight</h4>
+						<pre class="stretch">
+							<code data-trim data-noescape data-line-numbers="4">
+								@font-face {
+									font-family: 'Open Sans', 'Arial', sans-serif;
+									font-style: normal;
+									font-weight: 400;
+									src: local('Open Sans'),
+										url('/fonts/open-sans.woff2') format('woff2'),
+										url('/fonts/open-sans.woff') format('woff'),
+										url('/fonts/open-sans.ttf') format('truetype'),
+										url('/fonts/open-sans.eot') format('embedded-opentype');
+								}
+							</code>
+						</pre>
+					</section>
+					<section data-transition="none">
+						<h4>Define source</h4>
+						<p>1) look among locally installed fonts</p>
+						<pre class="stretch">
+							<code data-trim data-noescape data-line-numbers="5">
+								@font-face {
+									font-family: 'Open Sans', 'Arial', sans-serif;
+									font-style: normal;
+									font-weight: 400;
+									src: local('Open Sans'),
+										url('/fonts/open-sans.woff2') format('woff2'),
+										url('/fonts/open-sans.woff') format('woff'),
+										url('/fonts/open-sans.ttf') format('truetype'),
+										url('/fonts/open-sans.eot') format('embedded-opentype');
+								}
+							</code>
+						</pre>
+					</section>
+					<section data-transition="none">
+						<h2>Define source</h2>
+						<p>2) Path to download, if not found</p>
+						<pre class="stretch">
+							<code data-trim data-noescape data-line-numbers="6-9">
+								@font-face {
+									font-family: 'Open Sans', 'Arial', sans-serif;
+									font-style: normal;
+									font-weight: 400;
+									src: local('Open Sans'),
+										url('/fonts/open-sans.woff2') format('woff2'),
+										url('/fonts/open-sans.woff') format('woff'),
+										url('/fonts/open-sans.ttf') format('truetype'),
+										url('/fonts/open-sans.eot') format('embedded-opentype');
+								}
+							</code>
+						</pre>
+					</section>
+					<section data-transition="none">
+						<h2>Done?</h2>
+						<pre class="stretch">
+							<code data-trim data-noescape data-line-numbers="1-10">
+								@font-face {
+									font-family: 'Open Sans', 'Arial', sans-serif;
+									font-style: normal;
+									font-weight: 400;
+									src: local('Open Sans'),
+										url('/fonts/open-sans.woff2') format('woff2'),
+										url('/fonts/open-sans.woff') format('woff'),
+										url('/fonts/open-sans.ttf') format('truetype'),
+										url('/fonts/open-sans.eot') format('embedded-opentype');
+								}
+							</code>
+						</pre>
+					</section>
+					<section data-transition="none">
+						<h2>Define subsets</h2>
+						<pre class="stretch">
+							<code data-trim data-noescape data-line-numbers="10">
+								@font-face {
+									font-family: 'Open Sans', 'Arial', sans-serif;
+									font-style: normal;
+									font-weight: 400;
+									src: local('Open Sans'),
+										url('/fonts/open-sans.woff2') format('woff2'),
+										url('/fonts/open-sans.woff') format('woff'),
+										url('/fonts/open-sans.ttf') format('truetype'),
+										url('/fonts/open-sans.eot') format('embedded-opentype');
+									unicode-range: U+000-5FF; /* Latin glyphs */
+								}
+							</code>
+						</pre>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>FOIT & FOUT</h1>
+					</section>
+					<section>
+						<h4>🔴 FOIT - Flash of invisible text</h4>
+						<img class="stretch" src="./img/foit.gif" alt="foit">
+						<p>
+							<a href="https://www.malthemilthers.com/font-loading-strategy-acceptable-flash-of-invisible-text/" target="_blank">Gif by Malthe Milthers</a>
+							◼
+							<a href="https://dt-font-loading-d0mbbgpid.now.sh/self-host.html" target="_blank"><b>Demo by David Jurelius</b></a>
+						</p>
+					</section>
+					<section>
+						<h4>🟢 Font-display</h4>
+						<pre class="stretch">
+								<code data-trim data-noescape data-line-numbers="5">
+									@font-face {
+										font-family: 'Open Sans', 'Arial', sans-serif;
+										font-style: normal;
+										font-weight: 400;
+										font-display: swap;
+										src: local('Open Sans'),
+											url('/fonts/open-sans.woff2') format('woff2'),
+											url('/fonts/open-sans.woff') format('woff'),
+											url('/fonts/open-sans.ttf') format('truetype'),
+											url('/fonts/open-sans.eot') format('embedded-opentype');
+										unicode-range: U+000-5FF; /* Latin glyphs */
+									}
+								</code>
+							</pre>
+					</section>
+					<section>
+						<h4>🔴 FOUT - Flash of unstyled text</h4>
+						<img class="stretch" src="./img/fout.gif" alt="foit">
+						<p>
+							<a href="https://www.malthemilthers.com/font-loading-strategy-acceptable-flash-of-invisible-text/" target="_blank">Malthe Milthers</a>
+						</p>
+					</section>
+					<section>
+						<h4>🟢 Link Preload</h4>
+						<pre class="stretch">
+								<code data-trim data-line-numbers="2">
+									...
+									<link rel="preload" href="./fonts/open-sans.woff2" as="font" type="font/woff2">
+									...
+								</code>
+							</pre>
+							<p><a href="https://dt-font-loading-d0mbbgpid.now.sh/self-host-preload-fixed-swap.html" target="_blank"><b>Demo by David Jurelius</b></a></p>
+					</section>
+				</section>
+				<section>
+					<h1>Google Fonts</h1>
+					<pre class="stretch">
+						<code data-trim data-line-numbers="2">
+							...
+							<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+							...
+						</code>
+					</pre>
+					<p>Google Fonts started to support font-display property from May 2019.</p>
+				</section>
+				<section>
+					<h2>Bibliography:</h2>
+					<ul>
+						<li>
+							<a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/webfont-optimization?hl=en" target="_blank">
+								Web Font Optimization
+							</a> by Ilya Grigorik
+						</li>
+						<li>
+							<a href="https://www.malthemilthers.com/font-loading-strategy-acceptable-flash-of-invisible-text/" target="_blank">
+								Font loading strategy: The acceptable FOIT
+							</a> by Malthe Milthers
+						</li>
+						<li>
+							<a href="https://www.youtube.com/watch?v=s-G1m23Emlk" target="_blank">
+								How to Load Web Fonts in 2019 🎆
+							</a> by David Jurelius (DevTips)
+						</li>
+						<li>
+							<a href="https://www.zachleat.com/" target="_blank">
+								A Comprehensive Guide to Font Loading Strategies
+							</a> by Zach Leatherman
+						</li>
+					</ul>
+					<h2></h2>
+				</section>
+				<section>
+					<h1>Thank you🙏</h1>
+				</section>
+				<section>
+					<h1>❓❔❓❓</h1>
+					<h2>¿questions?</h2>
+				</section>
 			</div>
 		</div>
 
